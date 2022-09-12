@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Login Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:#ededed;">
+
+<div style="background-color:#337ab7;height:50px;"></div>
+<div class="container-fluid">
+  <div class="row col-lg-4 col-lg-offset-4" style="margin-top: 80px;background-color:#fff;padding:20px;border:solid 1px #ddd;">
+    <form action="/login" method="POST" >
+      <h3 class="form-signin-heading" th:text="Login"></h3>
+      <div class="mb-3">
+      <br /> <label>Email Id</label>
+      <input type="text" id="email" name="emailId" th:placeholder="EmailId" class="form-control" /> <br />
+      </div>
+      <div class ="mb-3">
+      <label>Password</label>
+      <input type="text" th:placeholder="Password" id="password" name="password" class="form-control" /> <br />
+      </div>
+      <div align="center" th:if="${param.error}">
+        <p style="font-size: 20; color: #FF1C19;">Email or Password is invalid.</p>
+      </div>
+      <div align="center" th:if="${param.logout}">
+        <p style="font-size: 20; color: #FF1C19;"> Logout Successfully.</p>
+      </div>
+      <button class="btn btn-lg btn-primary" name="Submit" value="login" type="Submit" th:text="login" style="margin-right:10px;"  href="/home">LogIn</button>
+      <a href="/recover-password">Forgot password?</a>
+      <a href="/registation">Registration</a>
+    </form>
+   </div>
+</div>
+</body>
+</html>
